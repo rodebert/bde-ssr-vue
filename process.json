@@ -1,0 +1,20 @@
+{
+  "apps": [{
+    "script": "index.js",
+    "name": "bde-ssr-vue",
+    "watch": true,
+    "ignore_watch": [
+      "node_modules/",
+      "node_modules/**/*",
+      ".git/"
+    ],
+    "env": {
+      "NODE_ENV": "development"
+    },
+    "watch_options": {
+      "followSymlinks": false,
+      "ignoreInitial": false
+    }
+  }]
+}
+
