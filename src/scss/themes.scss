@@ -1,0 +1,14 @@
+$themes: (
+	'red': (
+		background: #B22E0E,
+		color: #fff
+	),
+	'blue': (
+		background: #2A4A70,
+		color: #fff
+	)
+);
+
+$activeTheme: map-get($themes, $theme);
+
+
