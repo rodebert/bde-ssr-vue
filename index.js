@@ -1,10 +1,17 @@
-const fs = require('fs')
-const path = require('path')
-const express = require('express')
-const resolve = file => path.resolve(__dirname, file)
-const { createBundleRenderer } = require('vue-server-renderer')
+require('dotenv').config();
+const fs = require('fs');
+const path = require('path');
+const express = require('express');
+const resolve = file => path.resolve(__dirname, file);
+const { createBundleRenderer } = require('vue-server-renderer');
 
-const app = express()
+const serve = (path, cache) => express.static(resolve(path), {
+	maxAge: cache ? 1000 * 60 * 60 * 24 * 30 : 0
+});
+
+const app = express();
+
+app.use('/public', serve('./public', true));
 
 function createRenderer(bundle, options) {
 	return createBundleRenderer(bundle, Object.assign(options, {
@@ -12,7 +19,7 @@ function createRenderer(bundle, options) {
 	}))
 }
 
-const templatePath = resolve('./templates/index.tmpl.html');
+const templatePath = resolve('./config/templates/index.tmpl.html');
 const readyPromise = require('./build/server')(
 	app,
 	templatePath,
@@ -36,6 +43,7 @@ function render(req, res) {
 
 	const context = {
 		title: 'BDE VUE SSR',
+		lang: 'de',
 		url: req.url
 	};
 
