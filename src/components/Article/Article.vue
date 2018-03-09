@@ -54,11 +54,13 @@ img {
 
 <script>
 import Paragraph from './Paragraph.vue';
+import Tweet from './Tweet.vue';
 
 export default {
 	name: 'story',
 	components: {
 		'unstyled': Paragraph,
+		'tweet': Tweet
 	},
 	computed: {
 		item() {
