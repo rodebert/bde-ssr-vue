@@ -1,8 +1,9 @@
-const path = require('path')
-const webpack = require('webpack')
-const vueConfig = require('./vue-loader.config')
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const vueConfig = require('./vue-loader.config');
+const platformLoader = require.resolve('./platform-loader');
 
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = {
 	devtool: '#cheap-module-source-map',
@@ -20,8 +21,12 @@ module.exports = {
 		rules: [
 			{
 				test: /\.vue$/,
-				loader: 'vue-loader',
-				options: vueConfig,
+				use: [{
+					loader: 'vue-loader',
+					options: vueConfig,
+				}, {
+					loader: platformLoader
+				}]
 			},
 			{
 				test: /\.js$/,

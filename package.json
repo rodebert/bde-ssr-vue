@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "de-indent": "^1.0.2",
     "dotenv": "^5.0.1",
     "encoding": "^0.1.12",
     "express": "^4.16.2",
@@ -37,7 +38,6 @@
     "url-loader": "^0.6.2",
     "vue-loader": "^13.5.0",
     "vue-style-loader": "^3.0.3",
-    "vue-template-compiler": "^2.5.3",
     "webpack": "^3.8.1",
     "webpack-merge": "^4.1.1",
     "webpack-node-externals": "^1.6.0"

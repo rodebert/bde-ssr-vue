@@ -1,4 +1,4 @@
-<template amp>
+<template platform="amp">
 	<article>
 		<header>
 			<h1 class="theme-teaser--heading">{{item.title}}</h1>
@@ -11,7 +11,7 @@
 	</article>
 </template>
 
-<template web>
+<template platform="web">
 	<article>
 		<header>
 			<h1 class="theme-teaser--heading">{{item.title}}</h1>
