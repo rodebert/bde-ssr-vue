@@ -65,5 +65,7 @@ module.exports = function (source) {
 		return source;
 	}
 
-	return parseComponent(source);
+	const regEx = new RegExp(`<(template|script|style) platform="${PLATFORM}">`);
+
+	return regEx.test(source) ? parseComponent(source) : source;
 };
